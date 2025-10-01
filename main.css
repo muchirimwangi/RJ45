@@ -1,0 +1,117 @@
+html{
+  background-color:#A6ABE3;
+}
+$darkBlue:#272A4A;
+$blue:#5E6396;
+$cotactsHeight:40px;
+$c:30px;
+@mixin whiteColoredCable($color){
+
+    background-image:repeating-linear-gradient(45deg,$color,$color 5px,white 5px,white 20px );
+}
+
+@function rev($h) {
+    @return $h *-1;
+}
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction:column;
+  height: 100vh;
+  
+}
+.title{
+  color:$blue;
+  font-size:3em;
+  font-family:'lato';
+}
+.btn{
+  padding: 20px 50px;
+  background-color:white;
+  border-style:dashed;
+  border-color:red;
+  font-family:'lato';
+  color:$darkBlue;
+  position:absolute;
+  top:5vh;
+  right:10vw;
+  
+}
+.cables{
+  display: flex;
+    justify-content: center;
+  align-items: center;
+}
+.cable{
+  width:50px;
+  height:350px;
+  border: solid 3px #111;
+  border-bottom:none;
+  display:inline-block;
+  position:relative;
+  
+  &::before{
+    content:"";
+    position:absolute;
+    width:28px;
+    height:$cotactsHeight;
+    background-color:yellow;
+    left:50%;
+    top:rev($c);
+    transform:translateX(-50%);
+  }
+    &:not(:last-child){
+    margin-right:8px;
+    
+  }
+  
+  &:nth-child(1){
+@include whiteColoredCable(green);
+  
+  
+}
+  &:nth-child(2){
+background-color:green;
+}
+&:nth-child(3){
+  @include whiteColoredCable(orange);
+}
+  &:nth-child(4){
+background-color:blue;
+  
+  
+}
+&:nth-child(5){
+  @include whiteColoredCable(blue);
+}
+&:nth-child(6){
+  background-color:orange;
+}
+
+&:nth-child(7){
+  @include whiteColoredCable(brown);
+}
+
+  &:nth-child(8){
+background-color:brown;
+  
+  
+}
+
+
+
+}
+
+.utp{
+  
+  width:600px;
+  height:300px;
+  background-color:#ddd;
+  border:5px solid #111;
+  border-bottom:none;
+}
+
+.toggle:checked > .cables {
+  
+}
